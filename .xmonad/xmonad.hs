@@ -23,7 +23,7 @@ import Graphics.X11.ExtraTypes.XF86
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "urxvt --depth 32 --background 'rgba:0000/0000/0000/cccc' +sb -fg '#ffffff'"
+myTerminal      = "urxvt -fn 'xft:Bitstream Vera Sans Mono:pixelsize=10' -depth 32 --background 'rgba:0000/0000/0000/cccc' +sb -fg '#ffffff'"
 --myTerminal      = "urxvt -bg black -fg white -vb +sb"
 
 -- Whether focus follows the mouse pointer.
@@ -242,9 +242,9 @@ myManageHook = composeAll
     , className =? "Gimp"           --> doFloat
 
       -- Putting apps in their proper places
-    , className =? "Lanikai"    --> doShift "2-mail"
+    , className =? "irssi"    --> doShift "1-im"
+    , title =? "mutt"    --> doShift "2-mail"
     , className =? "Chromium"    --> doShift "3-web"
-    , className =? "Xchat"    --> doShift "1-im"
 
       -- Other stuff
     , resource  =? "desktop_window" --> doIgnore
