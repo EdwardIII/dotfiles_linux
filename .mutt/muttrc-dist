@@ -1,0 +1,43 @@
+set imap_user=info@madduck.co.uk
+set imap_pass=
+set folder=imaps://<hostname>/
+#set spoolfile=+INBOX
+set spoolfile=INBOX
+set imap_check_subscribed = yes
+set header_cache = ~/.mutt/hcache
+
+set my_user=info@madduck.co.uk
+set my_pass=
+set smtp_url=smtp://$my_user:$my_pass@<hostname>
+set ssl_force_tls=yes
+
+set realname="Edward Prendergast"
+set from=info@madduck.co.uk
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Color definitions
+#
+
+#color normal white default
+color hdrdefault red default
+color quoted brightblue default
+color signature red default
+color indicator default brightblack 
+color error brightred default
+color status brightyellow blue
+color tree magenta default	# the thread tree in the index menu
+color tilde magenta default
+color message brightcyan default
+color markers brightcyan default
+color attachment brightmagenta default
+color search default green	# how to hilite search patterns in the pager
+
+color index brightyellow brightred flag
+color index brightdefault default unread
+
+color header brightred default ^(From|Subject):
+color body magenta default "(ftp|http|https)://[^ ]+"	# point out URLs
+color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
+color underline brightgreen default
+
