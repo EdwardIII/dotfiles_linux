@@ -12,6 +12,6 @@ Config { font = "-*-profont-*-*-*-*-11-*-*-*-*-*-*-*"
                    , Run Battery ["-L","50","-H","75","--high","green","--normal","yellow", "--low", "red"] 10
                    ]
       , template = "%StdinReader% }{ %cpu% | %memory% | %wlan0% | %EGFH% | %battery% | <fc=#ee9a00>%date%</fc>"
-      , position = TopW L 90
+      , position = Static { xpos = 0 , ypos = 0, width = 1230, height = 16 },
 
       }
