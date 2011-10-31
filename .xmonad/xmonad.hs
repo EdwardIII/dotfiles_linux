@@ -11,6 +11,7 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import XMonad.Hooks.DynamicLog
+import XMonad.Actions.GridSelect
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -39,7 +40,7 @@ myBorderWidth   = 1
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod1Mask
+myModMask       = mod4Mask
 
 -- The mask for the numlock key. Numlock status is "masked" from the
 -- current modifier status, so the keybindings will work with numlock on or
@@ -84,7 +85,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    --, ((modm,               xK_p     ), spawn "exe=`dmenu_run | dmenu` && eval \"exec $exe\"")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -137,6 +139,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
+    -- Enable gridselect binding
+    , ((modm, xK_g), goToSelected defaultGSConfig)
+
    -- volume key bindingudioMute, spawn "amixer -q set PCM toggle")
    --      , ((0, xF86XK_AudioRaiseVolume, spawn "amixer -q set PCM 1+")
    --           , ((0, xF86XK_AudioLowerVolume, spawn "amixer -q set PCM 1-")
@@ -155,6 +160,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    -- Launch mutt in readonly mode
+    , ((modm .|. shiftMask, xK_m     ), spawn $ myTerminal ++ " -e mutt -R")
     ]
     ++
 
