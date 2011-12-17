@@ -1,0 +1,7 @@
+$if Bash
+      Space: magic-space
+$endif
+
+set visible-stats on
+set show-all-if-ambiguous on
+"\M-c": menu-complete

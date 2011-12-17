@@ -8,5 +8,13 @@ alias nopowersave='xset -dpms;xset s off' # see https://wiki.archlinux.org/index
 PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
 eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-export PATH=/home/edward/bin:$PATH
+export PATH=/home/edward/python/bin:/home/edward/bin:$PATH
 export BROWSER='/usr/bin/chromium'
+
+# Useful tweaks (also see .inputrc)
+shopt -s cdspell
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+
+# Create a directory called ~/wormholes, then you can symlink anywhere in there and access it with cd <name> instead of whole path
+CDPATH='.:..:../..:~/wormholes:~:~/Projects'
