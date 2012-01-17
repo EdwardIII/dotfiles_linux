@@ -8,7 +8,9 @@ alias nopowersave='xset -dpms;xset s off' # see https://wiki.archlinux.org/index
 PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
 eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-export PATH=/home/edward/python/bin:/home/edward/bin:$PATH
+export PATH=/home/edward/bin:$PATH
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+source /home/edward/python/bin/activate
 export BROWSER='/usr/bin/chromium'
 
 # Useful tweaks (also see .inputrc)

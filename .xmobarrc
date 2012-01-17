@@ -1,4 +1,5 @@
 Config { font = "-*-profont-*-*-*-*-11-*-*-*-*-*-*-*"
+    , , bgColor = "#222222"
     , commands = [ Run Weather "EGFH" ["-t","EGFH: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
                    --, Run Weather "CYYZ" ["-t","YYZ: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
